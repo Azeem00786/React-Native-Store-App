@@ -56,12 +56,12 @@ class BannerClass extends React.Component {
   }
 }
 const data = [
-  { id: '1', image: require('../test1.png'), title: 'Banner 1' },
-  { id: '2', image: require('../test2.png'), title: 'Banner 2' },
-  { id: '3', image: require('../test3.png'), title: 'Banner 3' },
-  { id: '4', image: require('../test5.png'), title: 'Banner 4' },
-  { id: '5', image: require('../test5.png'), title: 'Banner 4' },
-  { id: '6', image: require('../test5.png'), title: 'Banner 4' },
+  { id: '1', image: require('../test1.jpg'), title: 'Banner 1' },
+  { id: '2', image: require('../test2.jpg'), title: 'Banner 2' },
+  { id: '3', image: require('../test3.jpg'), title: 'Banner 3' },
+  { id: '4', image: require('../test5.jpg'), title: 'Banner 4' },
+  { id: '5', image: require('../test5.jpg'), title: 'Banner 4' },
+  { id: '6', image: require('../test5.jpg'), title: 'Banner 4' },
   // Add more items to the data array
 ];
 

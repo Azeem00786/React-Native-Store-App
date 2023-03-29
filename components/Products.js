@@ -39,12 +39,12 @@ export const Products = () => {
   )
 }
 const dataProducts = [
-  { id: '1', image: require('../test1.png'), title: 'Chicken Tikka', description:'good in test', itemPrice:100 },
-  { id: '2', image: require('../test2.png'), title: 'Paneer Tikka', description:'good in test', itemPrice:120},
-  { id: '3', image: require('../test3.png'), title: 'Paneer Butter', description:'good in test', itemPrice:90 },
-  { id: '4', image: require('../test5.png'), title: 'Half Biryani', description:'good in test', itemPrice:80 },
-  { id: '5', image: require('../test2.png'), title: 'Bread', description:'good in test', itemPrice:95},
-  { id: '6', image: require('../test2.png'), title: 'Tikka', description:'good in test', itemPrice:110 },
+  { id: '1', image: require('../test1.jpg'), title: 'Chicken Tikka', description:'good in test', itemPrice:100 },
+  { id: '2', image: require('../test2.jpg'), title: 'Paneer Tikka', description:'good in test', itemPrice:120},
+  { id: '3', image: require('../test3.jpg'), title: 'Paneer Butter', description:'good in test', itemPrice:90 },
+  { id: '4', image: require('../test5.jpg'), title: 'Half Biryani', description:'good in test', itemPrice:80 },
+  { id: '5', image: require('../test2.jpg'), title: 'Bread', description:'good in test', itemPrice:95},
+  { id: '6', image: require('../test2.jpg'), title: 'Tikka', description:'good in test', itemPrice:110 },
   // Add more items to the data array
 ];
 const styles = StyleSheet.create({
