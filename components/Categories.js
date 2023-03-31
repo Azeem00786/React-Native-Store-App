@@ -39,12 +39,12 @@ export const Categories = () => {
   )
 }
 const dataCategories = [
-    { id: '1', image: require('../test1.png'), title: 'category1' },
-    { id: '2', image: require('../test2.png'), title: 'category2' },
-    { id: '3', image: require('../test3.png'), title: 'category3' },
-    { id: '4', image: require('../test5.png'), title: 'category4' },
-    { id: '5', image: require('../test2.png'), title: 'category5' },
-    { id: '6', image: require('../test2.png'), title: 'category6' },
+    { id: '1', image: require('../test1.jpg'), title: 'category1' },
+    { id: '2', image: require('../test2.jpg'), title: 'category2' },
+    { id: '3', image: require('../test3.jpg'), title: 'category3' },
+    { id: '4', image: require('../test5.jpg'), title: 'category4' },
+    { id: '5', image: require('../test2.jpg'), title: 'category5' },
+    { id: '6', image: require('../test2.jpg'), title: 'category6' },
     // Add more items to the data array
   ];
   
