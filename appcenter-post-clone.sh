@@ -37,3 +37,12 @@ echo "app centre APPCENTER_TRIGGER ->> ${APPCENTER_TRIGGER}"
 echo "app centre APPCENTER_OUTPUT_DIRECTORY ->> ${APPCENTER_OUTPUT_DIRECTORY}"
 echo "app centre APPCENTER_REACTNATIVE_PACKAGE ->> ${APPCENTER_REACTNATIVE_PACKAGE}"
 echo "app centre APPCENTER_SOURCE_DIRECTORY ->> ${APPCENTER_SOURCE_DIRECTORY}"
+sed -i "" "s/OnlinekakaCustomer/AwesomeProject/g" "${APPCENTER_SOURCE_DIRECTORY}/android/app/src/main/res/values/strings.xml"
+echo "☛ App Name update"
+# directory name azeem
+# app centre buildId ->> 21
+# app centre branch ->> dev
+# app centre APPCENTER_TRIGGER ->> manual
+# app centre APPCENTER_OUTPUT_DIRECTORY ->> /Users/runner/work/1/a/build
+# app centre APPCENTER_REACTNATIVE_PACKAGE ->> package.json
+# app centre APPCENTER_SOURCE_DIRECTORY ->> /Users/runner/work/1/s/android/app/src/main/res/values/strings.xml
