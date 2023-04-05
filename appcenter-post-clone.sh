@@ -29,6 +29,11 @@
 
 #!/usr/bin/env bash
 
-echo "Directory name azeem"
-echo "${APPCENTER_SOURCE_DIRECTORY}"
-echo "$APPCENTER_SOURCE_DIRECTORY"
+echo "directory name azeem"
+
+echo "app centre buildId ->> ${APPCENTER_BUILD_ID}"
+echo "app centre branch ->> ${APPCENTER_BRANCH}"
+echo "app centre APPCENTER_TRIGGER ->> ${APPCENTER_TRIGGER}"
+echo "app centre APPCENTER_OUTPUT_DIRECTORY ->> ${APPCENTER_OUTPUT_DIRECTORY}"
+echo "app centre APPCENTER_REACTNATIVE_PACKAGE ->> ${APPCENTER_REACTNATIVE_PACKAGE}"
+echo "app centre APPCENTER_SOURCE_DIRECTORY ->> ${APPCENTER_SOURCE_DIRECTORY}"
