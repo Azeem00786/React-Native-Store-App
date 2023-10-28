@@ -1,134 +1,105 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import BannerClass from './components/Banner';
-import Products from './components/Products';
-import CategoryDetail from './screens/CategoryDetail';
-import {Component} from 'react';
-import codePush from 'react-native-code-push';
-
-import {NativeModules} from 'react-native';
-
-const {VoiceChangingModule} = NativeModules;
+import React, {Fragment} from 'react';
+import PushController from './PushController';
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+  FlatList,
+} from 'react-native';
 
 import {
-  StyleSheet,
-  View,
-  Button,
-  FlatList,
-  Image,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
-import CodePush from 'react-native-code-push';
+  Header,
+  LearnMoreLinks,
+  Colors,
+  DebugInstructions,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+// Dummy data for list, we'll replace this with data received from push
+let pushData = [
+  {
+    title: 'First push',
+    message: 'First push message',
+  },
+  {
+    title: 'Second push',
+    message: 'Second push message',
+  },
+];
 
-const Stack = createNativeStackNavigator();
-let codePushOptions = {checkFrequency: codePush.CheckFrequency.ON_APP_RESUME};
+_renderItem = ({item}) => (
+  <View key={item.title}>
+    <Text style={styles.title}>{item.title}</Text>
+    <Text style={styles.message}>{item.message}</Text>
+  </View>
+);
 
-class App extends Component {
-  onButtonPress() {
-    codePush.sync({
-      updateDialog: true,
-      installMode: codePush.InstallMode.IMMEDIATE,
-    });
-  }
-  callJavaMethod() {
-    alert('hii');
-  }
-  changeToChild() {
-    console.log('changeToChild');
-    var audioTrackURL =
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-    Platform.OS === 'android' &&
-      VoiceChangingModule.changeVoiceToChild(audioTrackURL);
-  }
-
-  changeVoiceToAlien() {
-    console.log('changeToChild');
-    var audioTrackURL =
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-    Platform.OS === 'android' &&
-      VoiceChangingModule.changeVoiceToChild(audioTrackURL);
-  }
-
-  speedUpVoice() {
-    console.log('changeToChild');
-    var audioTrackURL =
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-    Platform.OS === 'android' &&
-      VoiceChangingModule.changeVoiceToChild(audioTrackURL);
-  }
-
-  slowDownVoice() {
-    console.log('changeToChild');
-    var audioTrackURL =
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-    Platform.OS === 'android' &&
-      VoiceChangingModule.changeVoiceToChild(audioTrackURL);
-  }
-
-  stopRing() {
-    var audioTrackURL =
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-    console.log('stopRing');
-    VoiceChangingModule.stopSound();
-  }
-  justTest() {
-    console.log('juatTest');
-  }
-  render() {
-    return (
-      <View style={styles.mastyleLoginBtnin}>
-        <Text>azeem</Text>
-        <View style={styles.button}>
-          <Button title="change Voice To Alien" onPress={this.justTest} />
-        </View>
-        {/* <Button title='child voice' onPress={this.changeToChild}/>
-            <View style={styles.button}>
-              <Button title='changeVoiceToAlien' onPress={this.changeVoiceToAlien} />
-            </View> 
-            <View style={styles.button}>
-              <Button title='speedUpVoice' onPress={this.speedUpVoice} />
-            </View>
-            <View style={styles.button}>
-              <Button title='slowDownVoice' onPress={this.slowDownVoice} />
-            </View> 
-             
-            <View style={styles.button}>
-              <Button title='stop sound' onPress={this.stopRing} />
-            </View> 
-                <TouchableOpacity onPress={this.onButtonPress}>
-                    <Text style={{color:'black', textAlign:'center'}}>Check for updates</Text>
-                    <Text style={{color:'black', textAlign:'center'}}>Check for updates code push</Text>
-                    <Text style={{color:'black', textAlign:'center'}}>Check for updates withoout update</Text>
-                </TouchableOpacity> */}
-      </View>
-
-      //  <SafeAreaView style={{flex:1, backgroundColor:'hite'}}>
-      //  <NavigationContainer>
-      //   <Stack.Navigator initialRouteName="BannerClass">
-      //     <Stack.Screen name="BannerClass" component={BannerClass} />
-      //     <Stack.Screen name="CategoryDetail" component={CategoryDetail} />
-      //   </Stack.Navigator>
-
-      // </NavigationContainer>
-      //  </SafeAreaView>
-    );
-  }
-}
+const App = () => {
+  return (
+    <View>
+      <Text>Hello</Text>
+      <PushController />
+    </View>
+    // <Fragment>
+    //   <StatusBar barStyle="dark-content" />
+    //   <SafeAreaView>
+    //     <ScrollView
+    //       contentInsetAdjustmentBehavior="automatic"
+    //       style={styles.scrollView}>
+    //       <Header />
+    //       <View style={styles.listHeader}>
+    //         <Text>Push Notifications</Text>
+    //       </View>
+    //       <View style={styles.body}>
+    //         <FlatList
+    //           data={pushData}
+    //           renderItem={item => this._renderItem(item)}
+    //           keyExtractor={item => item.title}
+    //         />
+    //         {/* <LearnMoreLinks /> */}
+    //       </View>
+    //     </ScrollView>
+    //   </SafeAreaView>
+    //   <PushController />
+    // </Fragment>
+  );
+};
 
 const styles = StyleSheet.create({
-  mastyleLoginBtnin: {
-    padding: 10,
-    margin: 10,
-    height: 100,
-    width: 400,
+  scrollView: {backgroundColor: Colors.lighter},
+  listHeader: {backgroundColor: '#eee', color: '#222', height: 44, padding: 12},
+  title: {fontSize: 18, fontWeight: 'bold', paddingTop: 10},
+  message: {
+    fontSize: 14,
+    paddingBottom: 15,
+    borderBottomColor: '#ccc',
+    borderBottomWidth: 1,
   },
-  button: {
-    paddingTop: 10,
+  engine: {position: 'absolute', right: 0},
+  body: {
+    backgroundColor: Colors.white,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
+  sectionContainer: {marginTop: 32, paddingHorizontal: 24},
+  sectionTitle: {fontSize: 24, fontWeight: '600', color: Colors.black},
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+    color: Colors.dark,
+  },
+  highlight: {fontWeight: '700'},
+  footer: {
+    color: Colors.dark,
+    fontSize: 12,
+    fontWeight: '600',
+    padding: 4,
+    paddingRight: 12,
+    textAlign: 'right',
   },
 });
-App = codePush(codePushOptions)(App);
+
 export default App;
