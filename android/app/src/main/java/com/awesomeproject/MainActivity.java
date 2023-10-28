@@ -1,4 +1,6 @@
 package com.awesomeproject;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -17,7 +19,12 @@ public class MainActivity extends ReactActivity {
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-  super.onCreate(null);
+  super.onCreate(savedInstanceState);
+  NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+  Notification notification = new Notification.Builder(this)
+          .setLargeIcon()
+          .build();
+
 }
 
   /**
