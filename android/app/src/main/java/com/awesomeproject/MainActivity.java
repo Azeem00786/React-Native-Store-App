@@ -1,6 +1,7 @@
 package com.awesomeproject;
-import android.app.Notification;
-import android.app.NotificationManager;
+
+// import android.app.Notification;
+// import android.app.NotificationManager;
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -9,7 +10,8 @@ import com.facebook.react.ReactRootView;
 public class MainActivity extends ReactActivity {
 
   /**
-   * Returns the name of the main component registered from JavaScript. This is used to schedule
+   * Returns the name of the main component registered from JavaScript. This is
+   * used to schedule
    * rendering of the component.
    */
   @Override
@@ -17,19 +19,22 @@ public class MainActivity extends ReactActivity {
     return "AwesomeProject";
   }
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-  super.onCreate(savedInstanceState);
-  NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-  Notification notification = new Notification.Builder(this)
-          .setLargeIcon()
-          .build();
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    // NotificationManager nm = (NotificationManager)
+    // getSystemService(NOTIFICATION_SERVICE);
+    // Notification notification = new Notification.Builder(this)
+    // .setLargeIcon()
+    // .build();
 
-}
+  }
 
   /**
-   * Returns the instance of the {@link ReactActivityDelegate}. There the RootView is created and
-   * you can specify the renderer you wish to use - the new renderer (Fabric) or the old renderer
+   * Returns the instance of the {@link ReactActivityDelegate}. There the RootView
+   * is created and
+   * you can specify the renderer you wish to use - the new renderer (Fabric) or
+   * the old renderer
    * (Paper).
    */
   @Override
@@ -52,7 +57,8 @@ protected void onCreate(Bundle savedInstanceState) {
 
     @Override
     protected boolean isConcurrentRootEnabled() {
-      // If you opted-in for the New Architecture, we enable Concurrent Root (i.e. React 18).
+      // If you opted-in for the New Architecture, we enable Concurrent Root (i.e.
+      // React 18).
       // More on this on https://reactjs.org/blog/2022/03/29/react-v18.html
       return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
     }
