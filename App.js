@@ -1,5 +1,9 @@
 import React, {Fragment} from 'react';
 import PushController from './PushController';
+import messaging from '@react-native-firebase/messaging';
+import {useEffect} from 'react';
+import {PermissionsAndroid} from 'react-native';
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,6 +12,7 @@ import {
   Text,
   StatusBar,
   FlatList,
+  PermissionsAndroid,
 } from 'react-native';
 
 import {
@@ -18,52 +23,46 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 // Dummy data for list, we'll replace this with data received from push
-let pushData = [
-  {
-    title: 'First push',
-    message: 'First push message',
-  },
-  {
-    title: 'Second push',
-    message: 'Second push message',
-  },
-];
-
-_renderItem = ({item}) => (
-  <View key={item.title}>
-    <Text style={styles.title}>{item.title}</Text>
-    <Text style={styles.message}>{item.message}</Text>
-  </View>
-);
 
 const App = () => {
+  useEffect(() => {
+    PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS,
+    );
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      // Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+      console.log(JSON.stringify(remoteMessage));
+    });
+
+    return unsubscribe;
+  }, []);
+
+  async function requestUserPermission() {
+    const authStatus = await messaging().requestPermission();
+    const enabled =
+      authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+      authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+    if (enabled) {
+      console.log('Authorization status:', authStatus);
+    }
+  }
+  requestUserPermission();
+  const checkToken = async () => {
+    const fcmToken = await messaging().getToken();
+    // console.log(fcmToken);
+    if (fcmToken) {
+      console.log(fcmToken);
+    }
+  };
+  checkToken();
+  messaging().setBackgroundMessageHandler(async remoteMessage => {
+    console.log('Message handled in the background!', remoteMessage);
+  });
   return (
     <View>
-      <Text>Hello</Text>
-      <PushController />
+      <Text>Hello2</Text>
     </View>
-    // <Fragment>
-    //   <StatusBar barStyle="dark-content" />
-    //   <SafeAreaView>
-    //     <ScrollView
-    //       contentInsetAdjustmentBehavior="automatic"
-    //       style={styles.scrollView}>
-    //       <Header />
-    //       <View style={styles.listHeader}>
-    //         <Text>Push Notifications</Text>
-    //       </View>
-    //       <View style={styles.body}>
-    //         <FlatList
-    //           data={pushData}
-    //           renderItem={item => this._renderItem(item)}
-    //           keyExtractor={item => item.title}
-    //         />
-    //         {/* <LearnMoreLinks /> */}
-    //       </View>
-    //     </ScrollView>
-    //   </SafeAreaView>
-    //   <PushController />
-    // </Fragment>
   );
 };
 

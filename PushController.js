@@ -11,16 +11,16 @@ export default class PushController extends Component {
       },
 
       // (required) Called when a remote or local notification is opened or received
-      onNotification: function (notification) {
-        console.log('NOTIFICATION:', notification);
+      // onNotification: function (notification) {
+      //   console.log('NOTIFICATION:', notification);
 
-        // process the notification here
+      //   // process the notification here
 
-        // required on iOS only
-        notification.finish(PushNotificationIOS.FetchResult.NoData);
-      },
+      //   // required on iOS only
+      //   // notification.finish(PushNotificationIOS.FetchResult.NoData);
+      // },
       // Android only
-      senderID: '1090501687137',
+      // senderID: '1090501687137',
       // iOS only
       permissions: {
         alert: true,
