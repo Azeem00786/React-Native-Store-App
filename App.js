@@ -1,3 +1,7 @@
+import Listensms from './Listensms';
+
+/*********************   seperate   *************************/
+
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -81,6 +85,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.mastyleLoginBtnin}>
+        <Listensms />
         <Text>azeem</Text>
         <View style={styles.button}>
           <Button title="change Voice To Alien" onPress={this.justTest} />
@@ -88,17 +93,17 @@ class App extends Component {
         {/* <Button title='child voice' onPress={this.changeToChild}/>
             <View style={styles.button}>
               <Button title='changeVoiceToAlien' onPress={this.changeVoiceToAlien} />
-            </View> 
+            </View>
             <View style={styles.button}>
               <Button title='speedUpVoice' onPress={this.speedUpVoice} />
             </View>
             <View style={styles.button}>
               <Button title='slowDownVoice' onPress={this.slowDownVoice} />
-            </View> 
-             
+            </View>
+
             <View style={styles.button}>
               <Button title='stop sound' onPress={this.stopRing} />
-            </View> 
+            </View>
                 <TouchableOpacity onPress={this.onButtonPress}>
                     <Text style={{color:'black', textAlign:'center'}}>Check for updates</Text>
                     <Text style={{color:'black', textAlign:'center'}}>Check for updates code push</Text>
