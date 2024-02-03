@@ -1,0 +1,71 @@
+# workflows:
+#   my-workflow:
+#     name: Meal App
+    
+#     instance_type: mac_mini
+#     max_build_duration: 60
+#     environment:
+#       groups:
+#         - mealapp
+#       vars:
+#         app_name: "value here"
+workflows:
+  react-native-android:
+    name: React Native Android
+    max_build_duration: 120
+    instance_type: mac_mini_m1
+    environment:
+      # android_signing:
+      #   - keystore_reference
+      groups:
+        - mealapp
+      vars:
+        PACKAGE_NAME: "com.awesomeproject"
+    scripts:
+      - name: Set Android SDK location
+        script: | 
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
+      - name: app name change
+        script: | 
+          echo "$APP_NAME"
+          echo "APP_NAME --> ${APP_NAME}"
+          sed -i "" "s/mealApp/$APP_NAME/g" "android/app/src/main/res/values/strings.xml"
+        
+      - name: Install npm dependencies
+        script: | 
+          npm install --legacy-peer-deps
+      # - name: Install Expo CLI and eject
+      #   script: | 
+      #     npm install -g expo-cli
+      #     expo eject
+      # - name: Set up app/build.gradle
+      #   script: | 
+      #     mv ./support-files/build.gradle android/app
+      - name: Build Android release
+        script: | 
+          # LATEST_GOOGLE_PLAY_BUILD_NUMBER=$(google-play get-latest-build-number --package-name '$PACKAGE_NAME')
+          # if [ -z LATEST_BUILD_NUMBER ]; then
+          #     # fallback in case no build number was found from google play. Alternatively, you can `exit 1` to fail the build
+          #     UPDATED_BUILD_NUMBER=$BUILD_NUMBER
+          # else
+          #     UPDATED_BUILD_NUMBER=$(($LATEST_GOOGLE_PLAY_BUILD_NUMBER + 1))
+          # fi
+          
+          # react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+
+          cd android  
+          chmod +x gradlew
+          ./gradlew clean && ./gradlew assembleRelease
+    artifacts:
+      - android/app/build/outputs/**/*.apk
+    publishing:
+     slack:
+       channel: 'codemagic-alerts'
+       notify_on_build_start: true # To receive a notification when a build starts
+       notify:
+          success: true # To not receive a notification when a build succeeds
+          failure: true # To not receive a notification when a build succeeds
+      # email:
+      #   recipients:
+      #     - azeemmohammad377@gmail.com
+      #     - apps@hyperzod.com
