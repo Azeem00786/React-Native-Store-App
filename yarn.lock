@@ -6365,6 +6365,11 @@
     "jscodeshift" "^0.13.1"
     "nullthrows" "^1.1.1"
 
+"react-native-deep-linking@^2.2.0":
+  "integrity" "sha512-PKShbOsa/oxjSzZ/Bag98O/J+jaZOI6ic5YdanPirTpRAraAvKUzJWQUhE5Yy0Isl9yfIkSogOClE9BRfSyUbA=="
+  "resolved" "https://registry.npmjs.org/react-native-deep-linking/-/react-native-deep-linking-2.2.0.tgz"
+  "version" "2.2.0"
+
 "react-native-gesture-handler@^2.14.1", "react-native-gesture-handler@>= 1.0.0":
   "integrity" "sha512-YiM1BApV4aKeuwsM6O4C2ufwewYEKk6VMXOt0YqEZFMwABBFWhXLySFZYjBSNRU2USGppJbfHP1q1DfFQpKhdA=="
   "resolved" "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.14.1.tgz"

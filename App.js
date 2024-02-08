@@ -1,13 +1,15 @@
 // App.js
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {Link, NavigationContainer} from '@react-navigation/native';
+import {useEffect} from 'react';
+import {Linking} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
-import DetailsScreen from './screens/DetailsScreen';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'; // Import the FontAwesome5 icon library
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+// import DetailsScreen from './screens/DetailsScreen';
+import AccountScreen from './screens/AccountScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 const TabNavigator = () => {
@@ -19,24 +21,54 @@ const TabNavigator = () => {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({color, size}) => (
-            <FontAwesome5 name="home" color={color} size={size} />
+            <MaterialIcons name="home" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-        name="Details"
-        component={DetailsScreen}
+        name="Account Page"
+        component={AccountScreen}
         options={{
-          tabBarLabel: 'Details',
+          tabBarLabel: 'Account',
           tabBarIcon: ({color, size}) => (
-            <FontAwesome5 name="info-circle" color={color} size={size} />
+            <MaterialIcons name="account-circle" color={color} size={size} />
           ),
+          tabBarBadge: null,
         }}
       />
     </Tab.Navigator>
   );
 };
 const App = () => {
+  useEffect(() => {
+    Linking.getInitialURL()
+      .then(url => {
+        console.log('launch url 1', url);
+        if (url) {
+          // If there is a valid URL, call the _handleOpenUrl function to handle it.
+          _handleOpenUrl({url});
+        }
+      })
+      .catch(err => console.error('launch url error', err));
+
+    const handleDeepLink = event => {
+      console.log('Deep link received:', event.url);
+
+      // Handle the deep link URL here
+    };
+
+    // Add event listener for deep linking
+    Linking.addEventListener('url', handleDeepLink);
+    // Linking.removeEventListener('url', handleDeepLink);
+    // Remove the event listener when the component is unmounted
+    // return () => {
+    //   Linking.removeEventListener('url', handleDeepLink);
+    // };
+  }, []);
+  _handleOpenUrl = initialUrlSchemeEvent => {
+    console.log('handleOpenUrl', initialUrlSchemeEvent.url);
+    // It is using the 'window.handleIncomingIntentURL' function and passing the event URL as an argument.
+  };
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode="none">

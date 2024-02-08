@@ -1,6 +1,7 @@
 package com.awesomeproject;
 
 import android.app.Application;
+import com.oblador.vectoricons.VectorIconsPackage;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
@@ -31,6 +32,7 @@ public class MainApplication extends Application implements ReactApplication {
       // packages.add(new MyReactNativePackage());
       packages.add(new VoiceChangingPackage());
       packages.add(new SmsListenerPackage());
+      new VectorIconsPackage();
       return packages;
     }
 
