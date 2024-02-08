@@ -1,0 +1,213 @@
+{
+  "project_info": {
+    "project_number": "35754284823",
+    "project_id": "multipleproducts-40cd2",
+    "storage_bucket": "multipleproducts-40cd2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35754284823:android:93d9fd6161757fac3ec952",
+        "android_client_info": {
+          "package_name": "com.awesomeproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZeDaABR11zRz8uDsOGiXqqnSgEKIXpBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35754284823:android:72b68c91f35245b33ec952",
+        "android_client_info": {
+          "package_name": "com.customer.arything"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZeDaABR11zRz8uDsOGiXqqnSgEKIXpBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35754284823:android:6a920795c647bbe63ec952",
+        "android_client_info": {
+          "package_name": "com.customer.hyperzodshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZeDaABR11zRz8uDsOGiXqqnSgEKIXpBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35754284823:android:9582b76535616b863ec952",
+        "android_client_info": {
+          "package_name": "com.driver.arything"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZeDaABR11zRz8uDsOGiXqqnSgEKIXpBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35754284823:android:0742be40eabb9b723ec952",
+        "android_client_info": {
+          "package_name": "com.driver.hyperzodshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZeDaABR11zRz8uDsOGiXqqnSgEKIXpBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35754284823:android:8a30f05b114ddd773ec952",
+        "android_client_info": {
+          "package_name": "com.merchant.arything"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZeDaABR11zRz8uDsOGiXqqnSgEKIXpBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35754284823:android:9e7fe314937645fb3ec952",
+        "android_client_info": {
+          "package_name": "com.merchant.hyperzodshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZeDaABR11zRz8uDsOGiXqqnSgEKIXpBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35754284823-hsgh5shil4dt4n2q1b1238ise96mhtfm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

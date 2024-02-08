@@ -1,139 +1,82 @@
-import Listensms from './Listensms';
-
-/*********************   seperate   *************************/
-
+// App.js
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import BannerClass from './components/Banner';
-import Products from './components/Products';
-import CategoryDetail from './screens/CategoryDetail';
-import {Component} from 'react';
-import codePush from 'react-native-code-push';
+import {Link, NavigationContainer} from '@react-navigation/native';
+import {useEffect} from 'react';
+import {Linking} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreen';
+// import DetailsScreen from './screens/DetailsScreen';
+import AccountScreen from './screens/AccountScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color, size}) => (
+            <MaterialIcons name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Account Page"
+        component={AccountScreen}
+        options={{
+          tabBarLabel: 'Account',
+          tabBarIcon: ({color, size}) => (
+            <MaterialIcons name="account-circle" color={color} size={size} />
+          ),
+          tabBarBadge: null,
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
+const App = () => {
+  useEffect(() => {
+    Linking.getInitialURL()
+      .then(url => {
+        console.log('launch url 1', url);
+        if (url) {
+          // If there is a valid URL, call the _handleOpenUrl function to handle it.
+          _handleOpenUrl({url});
+        }
+      })
+      .catch(err => console.error('launch url error', err));
 
-import {NativeModules} from 'react-native';
+    const handleDeepLink = event => {
+      console.log('Deep link received:', event.url);
 
-const {VoiceChangingModule} = NativeModules;
+      // Handle the deep link URL here
+    };
 
-import {
-  StyleSheet,
-  View,
-  Button,
-  FlatList,
-  Image,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
-import CodePush from 'react-native-code-push';
+    // Add event listener for deep linking
+    Linking.addEventListener('url', handleDeepLink);
+    // Linking.removeEventListener('url', handleDeepLink);
+    // Remove the event listener when the component is unmounted
+    // return () => {
+    //   Linking.removeEventListener('url', handleDeepLink);
+    // };
+  }, []);
+  _handleOpenUrl = initialUrlSchemeEvent => {
+    console.log('handleOpenUrl', initialUrlSchemeEvent.url);
+    // It is using the 'window.handleIncomingIntentURL' function and passing the event URL as an argument.
+  };
+  return (
+    <NavigationContainer>
+      <Stack.Navigator headerMode="none">
+        <Stack.Screen name="Main" component={TabNavigator} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
-const Stack = createNativeStackNavigator();
-let codePushOptions = {checkFrequency: codePush.CheckFrequency.ON_APP_RESUME};
-
-class App extends Component {
-  onButtonPress() {
-    codePush.sync({
-      updateDialog: true,
-      installMode: codePush.InstallMode.IMMEDIATE,
-    });
-  }
-  callJavaMethod() {
-    alert('hii');
-  }
-  changeToChild() {
-    console.log('changeToChild');
-    var audioTrackURL =
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-    Platform.OS === 'android' &&
-      VoiceChangingModule.changeVoiceToChild(audioTrackURL);
-  }
-
-  changeVoiceToAlien() {
-    console.log('changeToChild');
-    var audioTrackURL =
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-    Platform.OS === 'android' &&
-      VoiceChangingModule.changeVoiceToChild(audioTrackURL);
-  }
-
-  speedUpVoice() {
-    console.log('changeToChild');
-    var audioTrackURL =
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-    Platform.OS === 'android' &&
-      VoiceChangingModule.changeVoiceToChild(audioTrackURL);
-  }
-
-  slowDownVoice() {
-    console.log('changeToChild');
-    var audioTrackURL =
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-    Platform.OS === 'android' &&
-      VoiceChangingModule.changeVoiceToChild(audioTrackURL);
-  }
-
-  stopRing() {
-    var audioTrackURL =
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-    console.log('stopRing');
-    VoiceChangingModule.stopSound();
-  }
-  justTest() {
-    console.log('juatTest');
-  }
-  render() {
-    return (
-      <View style={styles.mastyleLoginBtnin}>
-        <Listensms />
-        <Text>azeem</Text>
-        <View style={styles.button}>
-          <Button title="change Voice To Alien" onPress={this.justTest} />
-        </View>
-        {/* <Button title='child voice' onPress={this.changeToChild}/>
-            <View style={styles.button}>
-              <Button title='changeVoiceToAlien' onPress={this.changeVoiceToAlien} />
-            </View>
-            <View style={styles.button}>
-              <Button title='speedUpVoice' onPress={this.speedUpVoice} />
-            </View>
-            <View style={styles.button}>
-              <Button title='slowDownVoice' onPress={this.slowDownVoice} />
-            </View>
-
-            <View style={styles.button}>
-              <Button title='stop sound' onPress={this.stopRing} />
-            </View>
-                <TouchableOpacity onPress={this.onButtonPress}>
-                    <Text style={{color:'black', textAlign:'center'}}>Check for updates</Text>
-                    <Text style={{color:'black', textAlign:'center'}}>Check for updates code push</Text>
-                    <Text style={{color:'black', textAlign:'center'}}>Check for updates withoout update</Text>
-                </TouchableOpacity> */}
-      </View>
-
-      //  <SafeAreaView style={{flex:1, backgroundColor:'hite'}}>
-      //  <NavigationContainer>
-      //   <Stack.Navigator initialRouteName="BannerClass">
-      //     <Stack.Screen name="BannerClass" component={BannerClass} />
-      //     <Stack.Screen name="CategoryDetail" component={CategoryDetail} />
-      //   </Stack.Navigator>
-
-      // </NavigationContainer>
-      //  </SafeAreaView>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  mastyleLoginBtnin: {
-    padding: 10,
-    margin: 10,
-    height: 100,
-    width: 400,
-  },
-  button: {
-    paddingTop: 10,
-  },
-});
-App = codePush(codePushOptions)(App);
 export default App;
